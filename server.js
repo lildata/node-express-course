@@ -14,3 +14,12 @@ app.get("/users", function(req, res) {
     users: mockUserData,
   });
 });
+
+app.get("/users/:id", function(req, res) {
+  console.log("ID: " + req.params.id);
+  res.json({
+    success: true,
+    message: "Here is one user",
+    users: req.params.id,
+  });
+});

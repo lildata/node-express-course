@@ -23,3 +23,24 @@ app.get("/users/:id", function(req, res) {
     users: req.params.id,
   });
 });
+
+app.post("/login", function(req, res) {
+  const user = req.body.user;
+  const pass = req.body.pass;
+
+  const storedUser = "bob";
+  const storedPass = "secret";
+
+  if (user === storedUser && pass === storedPass) {
+    res.json({
+      sucess: true,
+      message: "its a match",
+      token: "THE token",
+    });
+  } else {
+    res.json({
+      success: false,
+      message: "user/pass dont match...",
+    });
+  }
+});
